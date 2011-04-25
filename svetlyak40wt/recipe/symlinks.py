@@ -70,7 +70,7 @@ class Symlinks(Egg):
                 logger.info('Removing symlink from "%s" to "%s"' % (os.readlink(to), to))
                 os.remove(to)
 
-            if not os.path.exists(to):
+            if not os.path.exists(to) and not os.path.islink(to):
                 logger.info('Making symlink from "%s" to "%s"' % (file, to))
                 os.symlink(file, to)
         
@@ -82,7 +82,7 @@ class Symlinks(Egg):
 
 
     def update(self):
-        pass
+        self.install()
 
 
     def _get_resource_filename(self, uri):

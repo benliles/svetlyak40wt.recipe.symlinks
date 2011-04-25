@@ -56,6 +56,11 @@ Here is a minimal buildout.cfg:
 ChangeLog
 ---------
 
+### 0.2.1
+
+Added support for the update buildout call so that updated eggs are handled.
+Fixed existing file detection since os.path.exists returns false for symlinks on some systems.
+
 ### 0.2.0
 
 #### Backward incompatibilities:
